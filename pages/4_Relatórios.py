@@ -34,12 +34,12 @@ if ca.esta_logado():
         df = df.sort_values(by=['Tipo', 'Data'], ascending=True)
         periodo_padrao = str(dt.datetime.now().year) + "-" + str(dt.datetime.now().month) + "-" + "01"
         teste = dt.datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
-        st.write(teste)
+        # st.write(teste)
         periodo_padrao = dt.datetime.strptime(periodo_padrao, '%Y-%m-%d') - dt.timedelta(days=1)
         mes_selecionado = st.selectbox('Mês:', list(ut.meses.keys()), index=periodo_padrao.month-1)
         ano_selecionado = st.selectbox('Ano', df['Data'].dt.year.unique(), index=int(np.where(df['Data'].dt.year.unique() == periodo_padrao.year)[0]))
         gerar_relatorio = st.button('Gerar Relatório')
-        st.write(f'Mês: {mes_selecionado} - Ano: {ano_selecionado}')
+        # st.write(f'Mês: {mes_selecionado} - Ano: {ano_selecionado}')
         if gerar_relatorio:
             st.session_state['relatorio'] = 1
             data_inicial = dt.date(int(ano_selecionado), ut.meses[mes_selecionado], 1)
