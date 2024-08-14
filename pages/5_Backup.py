@@ -24,4 +24,4 @@ if ca.esta_logado():
     st.title("Prestação de Contas")
     st.divider()
     df = ut.recebe_dados()
-    st.dataframe(df)
+    st.dataframe(df, hide_index=True)
